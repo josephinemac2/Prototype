@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     {
         rigidbodyComponent.velocity = new Vector3(horizontalInput, rigidbodyComponent.velocity.y, 0);
 
-        if (Physics.OverlapSphere(groundCheckTransform.position, 0.7f, playerMask).Length == 0)
+        if (Physics.OverlapSphere(groundCheckTransform.position, 0.7f, playerMask).Length == 1)
         {
             return;
         }
