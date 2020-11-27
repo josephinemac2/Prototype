@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private bool jumpKeyWasPressed;
     private float horizontalInput;
     private Rigidbody rigidbodyComponent;
+    private int superJumpsRemaining;
     
 
 
@@ -42,8 +43,23 @@ public class Player : MonoBehaviour
 
         if (jumpKeyWasPressed)
          {
+            float jumpPower = 5;
+            if (superJumpsRemaining > 0)
+            {
+                jumpPower *= 2;
+                superJumpsRemaining--;
+            }
             jumpKeyWasPressed = false;
-            rigidbodyComponent.AddForce(Vector3.up * 4, ForceMode.VelocityChange);  
+            rigidbodyComponent.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);  
+         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+         {
+            Destroy(other.gameObject);
+            superJumpsRemaining++;
          }
     }
 
