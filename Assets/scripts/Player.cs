@@ -36,14 +36,14 @@ public class Player : MonoBehaviour
     {
         rigidbodyComponent.velocity = new Vector3(horizontalInput, rigidbodyComponent.velocity.y, 0);
 
-        if (Physics.OverlapSphere(groundCheckTransform.position, 0.7f, playerMask).Length == 1)
+        if (Physics.OverlapSphere(groundCheckTransform.position, 0.3f, playerMask).Length == 1)
         {
             return;
         }
 
         if (jumpKeyWasPressed)
          {
-            float jumpPower = 5;
+            float jumpPower = 3;
             if (superJumpsRemaining > 0)
             {
                 jumpPower *= 2;
