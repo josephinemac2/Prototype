@@ -14,6 +14,7 @@ public class MoveBackground : MonoBehaviour {
 
 
 
+
 	// Use this for initialization
 	void Start () {
 		//PontoOriginal = transform.position.x;
